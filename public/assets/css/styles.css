@@ -1,0 +1,825 @@
+:root{
+    --background-color: #f4f4f5;
+    --font-family: 'Quicksand', sans-serif;
+    --button-color:#2789df;
+    --text-color:black;
+    --chat-color:white;
+    --border-color:#e4e6e5;
+}
+.dark-mode{
+    --text-color:white;
+    --background-color: #242526;
+    --font-family: 'Quicksand', sans-serif;
+    --button-color:#3b3d3e;
+    --chat-color:#252728;
+    --border-color:#3a3c3d;
+}
+.user-theme{
+    color: var(--text-color);
+}
+.bg-white{
+    --bs-bg-opacity: 0;
+}
+.modal-body{
+    background-color: var(--border-color)!important;
+    color: var(--text-color);
+}
+.listfr-item,.friend-item,.listfr-header,.list-group-item,.modal-header,.modal-footer,.friend-request-item,.offcanvas{
+    background-color: var(--border-color)!important;
+    color: var(--text-color);
+}
+.border-bottom, .border-top{
+    border-color: var(--border-color)!important;
+}
+.fa-image,.fa-paperclip,.chat-name,.fa-user-plus,.fa-people-group,.friend-name{
+    color: var(--text-color)!important;
+}
+.chatbox1 , .chatbox2, .buttonsent ,.color-chat,.chat-list,.chat-info{
+    background-color: var(--chat-color)!important;
+    color: var(--text-color)!important;
+}
+body {
+    background: var(--background-color);
+    font-family: var(--font-family);
+}
+
+.btn-primary,.button{
+    border-color: var(--text-color);
+    background-color: var(--button-color);
+}
+.btn-outline-primary{
+    border-color: var(--text-color);
+    color: var(--text-color);
+}
+.header-chat{
+    background-color: var(--background-color)!important;
+    color: white;
+}
+header .sticky-header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1030;
+}
+
+.logohoanxu {
+    width: 200px;
+    height: 110px;
+}
+
+footer .icon-footer {
+    width: 30px;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.custom-container {
+    width: 100%;
+    margin: 0 auto;
+}
+
+@media (min-width: 768px) {
+    .custom-container {
+        width: 768px !important;
+    }
+}
+
+@media (min-width: 1024px) {
+    .custom-container {
+        width: 1024px !important;
+    }
+}
+
+
+/* custom */
+.box-shadow-top {
+    box-shadow: 0 -4px 8px 0 rgba(0, 0, 0, 0.1);
+}
+
+.box-shadow {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+}
+
+.underline-none {
+    text-decoration: none;
+}
+
+.underline-none.hover:hover {
+    text-decoration: underline;
+}
+
+.btn-rd-05rem {
+    border-radius: .5rem;
+}
+
+.bg-coins-refund {
+    background: linear-gradient(90deg, rgba(238, 9, 121, 1) 12%, rgba(255, 106, 0, 1) 83%);
+}
+
+.color-coins-refund {
+    background: linear-gradient(90deg, rgba(238, 9, 121, 1) 12%, rgba(255, 106, 0, 1) 83%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.border-coins-refund {
+
+    border: 1px solid;
+    border-image: linear-gradient(90deg, rgba(238, 9, 121, 1) 12%, rgba(255, 106, 0, 1) 83%);
+    border-image-slice: 1;
+}
+
+.border-coins-refund-2 {
+    position: relative;
+    border-radius: 12px;
+    z-index: 1;
+}
+
+.border-coins-refund-2::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: 12px;
+    padding: 1.5px;
+    background: linear-gradient(90deg, rgba(238, 9, 121, 1) 12%, rgba(255, 106, 0, 1) 83%);
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    z-index: -1;
+}
+
+.bg-e2e8f0 {
+    background: #e2e8f0;
+}
+
+.bg-shopee {
+    background: linear-gradient(90deg, rgba(238, 131, 9, 1) 12%, rgba(232, 208, 70, 1) 83%);
+}
+
+.line-height-16 {
+    line-height: 16px;
+}
+
+.break-word {
+    word-wrap: break-word;
+}
+
+.white-space-no-wrap-none {
+    white-space: normal !important;
+}
+
+.responsive-text-xs {
+    font-size: 0.5rem;
+}
+
+.responsive-text-small {
+    font-size: 0.75rem;
+}
+
+.responsive-text-medium {
+    font-size: 1rem;
+}
+
+.responsive-text-large {
+    font-size: 1.25rem;
+}
+
+@media (min-width: 768px) {
+
+    .responsive-text-xs {
+        font-size: 0.75rem;
+    }
+
+    .responsive-text-small {
+        font-size: 1rem;
+    }
+
+    .responsive-text-medium {
+        font-size: 1.25rem;
+    }
+
+    .responsive-text-large {
+        font-size: 1.5rem;
+    }
+}
+
+@media (min-width: 992px) {
+    .responsive-text-small {
+        font-size: 1.25rem;
+    }
+
+    .responsive-text-small.none-lg {
+        font-size: 1rem !important;
+    }
+
+    .lh-lg-none {
+        line-height: normal !important;
+    }
+
+    .responsive-text-medium {
+        font-size: 1.5rem;
+    }
+
+    .responsive-text-large {
+        font-size: 1.75rem;
+    }
+}
+
+.small-input {
+    font-size: 0.75rem;
+}
+
+.small-input::placeholder {
+    font-size: 0.75rem;
+}
+
+
+.medium-input {
+    font-size: 1rem;
+}
+
+.medium-input::placeholder {
+    font-size: 1rem;
+}
+
+.border-cl-shopee {
+    border: 1px solid #ee4d2d;
+}
+
+.icon-menu {
+    height: 35px;
+    width: 35px;
+}
+
+.fs-7 {
+    font-size: 0.875rem;
+}
+
+/* loading */
+.loading-spinner {
+    display: inline-block;
+    width: 1.5rem;
+    height: 1.5rem;
+    border: 0.2em solid currentColor;
+    border-right-color: transparent;
+    border-radius: 50%;
+    animation: spinner-border .75s linear infinite;
+}
+
+@keyframes spinner-border {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* otp */
+
+.otp-container {
+    gap: 10px;
+}
+
+.otp-input {
+    width: 50px;
+    height: 50px;
+    text-align: center;
+    font-size: 24px;
+    border: 2px solid #ccc;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+}
+
+.otp-input:focus {
+    border-color: #007bff;
+    outline: none;
+}
+
+/* Responsive cho màn hình nhỏ */
+@media (max-width: 600px) {
+    .otp-container {
+        gap: 5px;
+    }
+
+    .otp-input {
+        width: 40px;
+        height: 40px;
+        font-size: 20px;
+    }
+}
+
+@media (max-width: 400px) {
+    .otp-container {
+        gap: 3px;
+    }
+
+    .otp-input {
+        width: 35px;
+        height: 35px;
+        font-size: 18px;
+    }
+}
+
+.sidebar {
+    background-color:var(--button-color);
+}
+
+.profile img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-bottom: 20px;
+    object-fit:cover;
+}
+
+.menu-item {
+    margin-bottom: 50px;
+    justify-items: center;
+}
+
+.menu-item i {
+    color: white;
+    font-size: 24px;
+    margin: auto;
+}
+#settingsDropdown::after {
+    display: none !important; 
+}
+.fa-people-group {
+    margin-right: 5px;
+}
+
+.setting {
+    margin-top: auto;
+}
+
+.search-bar input {
+    width: 300px;
+    height: 30px;
+    padding: 10px;
+    border-radius: 20px;
+    border: 1px solid;
+    flex-grow: 1;
+    /* Để thanh tìm kiếm chiếm hết không gian trống */
+    flex-wrap: nowrap;
+    max-width: 100%;
+    /* Giới hạn chiều rộng của input không vượt quá container */
+}
+
+.search-bar i {
+    cursor: pointer;
+    color: #333;
+    margin: 0 auto;
+    margin: 10px;
+    font-size: 24px;
+    /* Điều chỉnh kích thước icon nếu cần */
+    vertical-align: middle;
+    /* Đảm bảo icon căn giữa theo chiều dọc */
+    flex-wrap: nowrap;
+}
+
+.chat-list-container {
+    max-height: 620px;
+    overflow-y: auto;
+}
+
+
+.chat-item:hover {
+    background: #f0ecec;
+}
+
+.chat-item img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit:cover;
+}
+
+.chat-info h5 {
+
+    font-size: 16px;
+}
+
+.chat-info p {
+    margin: 0;
+    font-size: 12px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width: 150px;
+}
+
+.chat-time {
+    font-size: 10px;
+    color: #888;
+}
+.message img.avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.message img.img-send{
+    width: 300px;
+    height: 200px;
+    object-fit: scale-down;
+}
+
+.message-content {
+    background-color: var(--button-color)!important;
+    color: white;
+    border-radius: 5px;
+    position: relative;
+    max-width: 500px;
+    word-break: break-word;
+    margin: 0;
+}
+
+.message-time {
+    font-size: 10px;
+    color: white;
+    margin-left: 5px;
+}
+
+
+.chat-input {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: auto;
+    background-color: #fff;
+    border-top: 1px solid #ddd;
+}
+
+.chat-input input {
+    flex-grow: 1;
+    border-radius: 20px;
+    border: 1px solid #ddd;
+}
+
+.container {
+    max-height: 100%;
+}
+
+.input-icons a {
+    margin-right: 10px;
+    /* Khoảng cách giữa các icon */
+    color: #777;
+    /* Màu sắc của icon */
+}
+#messageInput {
+    width: 100%; /* Chiếm toàn bộ chiều ngang */
+    border-radius: 20px; /* Bo tròn các góc */
+    border: 1px solid #ddd; /* Đường viền */
+    resize: none; /* Không cho phép thay đổi kích thước thủ công */
+    overflow: hidden; /* Ẩn phần cuộn ngang, cuộn dọc tự động */
+    min-height: 40px; /* Chiều cao tối thiểu */
+    max-height: 150px; /* Chiều cao tối đa khi tự động mở rộng */
+    padding: 10px; /* Padding cho khoảng cách văn bản */
+}
+@media (max-width: 768px) {
+
+
+    .chat-input {
+        position: static;
+        /* Chuyển vị trí từ absolute sang static */
+        width: 100%;
+        bottom: 0;
+    }
+
+    .search-bar input {
+        width: 100%;
+
+    }
+}
+.group-image-container {
+    position: relative;
+    display: flex;
+    justify-content: center; /* Căn giữa theo chiều ngang */
+    align-items: center; /* Căn giữa theo chiều dọc */
+}
+
+.group-image-circle {
+    width: 100px; /* Đặt kích thước hình tròn */
+    height: 100px; /* Đặt kích thước hình tròn */
+    border-radius: 50%; /* Tạo hình tròn */
+    background-color: #f0f0f0; /* Màu nền cho hình tròn */
+    display: flex;
+    justify-content: center; /* Căn giữa biểu tượng camera */
+    align-items: center; /* Căn giữa biểu tượng camera */
+    overflow: hidden; /* Ẩn phần tràn ra ngoài */
+    position: relative; /* Để định vị các phần tử bên trong nếu cần */
+}
+
+.group-image-circle img {
+    width: 100%; /* Đặt width của ảnh bằng 100% */
+    height: 100%; /* Đặt height của ảnh bằng 100% */
+    object-fit: cover; /* Đảm bảo ảnh được cắt đúng tỷ lệ bên trong hình tròn */
+    position: absolute; /* Đặt vị trí ảnh tuyệt đối trong hình tròn */
+    top: 0; /* Đặt vị trí trên cùng */
+    left: 0; /* Đặt vị trí bên trái */
+    object-fit:cover;
+}
+
+.group-image-circle i {
+    font-size: 36px; /* Kích thước font của biểu tượng camera */
+    color: #000; /* Màu sắc của biểu tượng camera */
+    position: absolute; /* Để định vị biểu tượng camera */
+}
+.form-check-input {
+    position: relative;
+    top: 15px;
+}
+#groupImagePreview {
+    position: absolute; /* Đặt hình ảnh ở vị trí tuyệt đối */
+    top: 0; /* Đặt hình ảnh ở trên cùng */
+    left: 0; /* Đặt hình ảnh ở bên trái */
+    width: 100%; /* Đặt chiều rộng hình ảnh 100% */
+    height: 100%; /* Đặt chiều cao hình ảnh 100% */
+    object-fit: cover; /* Cắt hình ảnh để giữ tỷ lệ mà không bị biến dạng */
+    border-radius: 50%; /* Làm cho hình ảnh cũng hình tròn */
+    display: none; /* Ban đầu ẩn hình ảnh */
+}
+/* ------------------------------------------------------ */
+/* Các mục trong danh sách bạn bè */
+.listfr-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 0;
+    border-radius: 10px;
+    margin: 10px;
+    cursor: pointer;
+  }
+  
+  .listfr-item:hover {
+    background: #f0ecec;
+  }
+  
+  .listfr-item img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit:cover;
+  }
+  
+  /* Thanh tìm kiếm chính */
+
+  
+  .search-bar-main input {
+    border-radius: 20px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    flex-grow: 1;
+  }
+  
+  .search-bar-main button {
+    border-radius: 20px;
+    padding: 10px 15px;
+  }
+  
+  /* Thông tin chat */
+  .listfr-info h5 {
+    margin-bottom: 0;
+    font-size: 16px;
+  }
+  
+  .text-center {
+    margin-top: 20px;
+  }
+  
+  .listfr-header {
+    height: 70px;
+  }
+  
+  .listfr-header i {
+    font-size: 24px;
+    margin-right: 10px;
+  }
+  
+  .listfr-header h3 {
+    font-size: 20px;
+    margin: 0;
+    flex-grow: 1;
+  }
+  
+  .listfr-body {
+    padding: 20px;
+    background-color: #f0f0f0;
+    flex-grow: 1;
+    overflow-y: auto;
+  }
+  
+  .friend-item {
+    display: flex;
+    align-items: center;
+    padding: 10px 0;
+    border-bottom: 1px solid #eee;
+    cursor: pointer;
+    transition: background-color 0.2s;
+  }
+  
+  .friend-item:hover {
+    background-color: #f0f0f0;
+  }
+  
+  .friend-img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-right: 10px;
+    object-fit:cover;
+  }
+  
+  .friend-name {
+    font-size: 16px;
+  }
+  
+  .friend-item a {
+    margin-left: auto;
+  }
+  
+  .friend-item a i {
+    font-size: 20px;
+    color: #777;
+  }
+  
+  .friend-item:hover a i {
+    color: #333;
+  }
+  
+  /* dropdown menu*/
+  .dropdown-menu-custom {
+    display: none;
+    position: absolute;
+    z-index: 1000;
+    background: white;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 5px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .dropdown-menu-custom a {
+    display: block;
+    padding: 5px 10px;
+    color: black;
+    text-decoration: none;
+  }
+  
+  .dropdown-menu-custom a:hover {
+    background: #f0f0f0;
+  }
+/* css thêm thành viên */
+.form-check {
+    display: flex;
+    align-items: center;
+    margin-bottom: 8px;
+}
+
+.form-check-input {
+    margin-right: 8px; /* Khoảng cách giữa checkbox và label */
+    top: 0px;
+}
+
+.form-check-label {
+    margin-left: 0; /* Đảm bảo không có khoảng cách thừa */
+}
+
+.pagination {
+    font-size: 0.875rem; /* Điều chỉnh kích thước font chữ */
+}
+
+.pagination .page-item .page-link {
+    padding: 0.5rem 0.75rem; /* Điều chỉnh khoảng cách padding */
+}
+
+/* aaaa */
+
+.message_mini {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+
+.container-fluid.hehe {
+    flex: 1;
+    overflow: hidden;
+}
+
+
+
+.sidebar {
+    height: 100%;
+    overflow-y: auto;
+}
+
+.window-chat {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    position: relative;
+}
+
+.chat-window {
+    height: 100%;
+    overflow-y: auto;
+}
+
+/* Ảnh Bìa */
+.cover-image-label img {
+    border: 5px solid transparent; /* Viền mặc định */
+    transition: border 0.3s; /* Hiệu ứng chuyển đổi cho viền */
+}
+
+.cover-image-label img:hover {
+    border: 5px solid rgba(0, 123, 255, 0.7); /* Viền khi hover */
+}
+.cover-image-wrapper {
+    position: relative;
+    width: 100%; /* Chiếm toàn bộ chiều rộng */
+    height: 200px; /* Chiều cao cố định hoặc điều chỉnh theo nhu cầu */
+    overflow: hidden; /* Ẩn phần vượt ra ngoài */
+}
+
+.cover-image-label {
+    background-size: cover; /* Giữ nguyên tỉ lệ hình ảnh */
+    background-position: center; /* Căn giữa hình ảnh */
+    width: 100%; /* Chiếm toàn bộ chiều rộng */
+    height: 100%; /* Chiếm toàn bộ chiều cao */
+}
+
+/* Ảnh Đại Diện */
+.text-left {
+    text-align: left; /* Căn giữa ảnh đại diện */
+}
+
+.text-left img {
+    border: 3px solid white; /* Viền mặc định cho ảnh đại diện */
+    transition: border 0.3s; /* Hiệu ứng chuyển đổi cho viền */
+}
+
+.text-left img:hover {
+    border: 3px solid rgba(0, 123, 255, 0.7); /* Viền khi hover */
+}
+
+.mt-n5 {
+    margin-top: -5rem; /* Điều chỉnh vị trí ảnh đại diện gần với ảnh bìa hơn */
+}
+
+/* btn 165 */
+.btn-165 {
+    padding: 10px 25px;
+    font-size: 14px;
+    font-weight: 700;
+    text-align: center;
+    vertical-align: middle;
+    border-radius: 0.5rem;
+    border: 1px solid #bebebe;
+    gap: 10px;
+    color: #414141;
+    background: #fff;
+    font-family: Arial, Helvetica, sans-serif;
+    cursor: pointer;
+    text-decoration: none;
+    user-select: none;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    /*** full width block ***/
+    /* width: 100%; */
+}
+
+.btn-165 svg {
+    height: 24px;
+}
+
+.btn-165:hover {
+    border: solid 1px #464545;
+}
+
+.btn-165:active {
+    margin-top: 1px;
+}
+
+/*** disabled style ***/
+.btn-165:disabled {
+    pointer-events: none;
+    opacity: .65;
+    color: #7e7e7e;
+    background: #dcdcdc;
+    box-shadow: none;
+    text-shadow: none;
+}
+
+.nav-link .active {
+    color: #ee2907 !important; 
+}
