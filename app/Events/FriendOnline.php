@@ -31,3 +31,4 @@ class FriendOnline implements ShouldBroadcast
         return ['user' => $this->user];
     }
 }
+// friend_onl

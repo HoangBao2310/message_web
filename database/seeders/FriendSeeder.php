@@ -10,7 +10,7 @@ use App\Models\FriendRequest;
 class FriendSeeder extends Seeder
 {
     /**
-     * Run the database seeds.
+     * Run the database 
      */
     public function run(): void
     {
