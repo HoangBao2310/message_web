@@ -11,10 +11,10 @@
 @endsection
 
 @section('content-1')
-<div class="chat-list-container px-3">
+<div class="chat-list-container">
     @foreach ($conversations as $item)
     <a id="conversation-{{ $item->id }}"
-        class="text-decoration-none d-flex justify-content-between conversation-link mb-4" data-id="{{ $item->id }}">
+        class="item-user text-decoration-none d-flex justify-content-between conversation-link" data-id="{{ $item->id }}">
         <div class="d-flex align-items-center">
             <img src="{{ $item->is_group ? ($item->avatar ? asset(str_replace('public/', 'storage/', $item->avatar)) : asset('/assets/images/avatar_default_group.jpg')) : ($item->friend->avatar ? asset($item->friend->avatar) : asset('/assets/images/avatar_default.jpg')) }}"
                 alt="User" class="rounded-circle me-3" style="object-fit: cover" width="50" height="50">

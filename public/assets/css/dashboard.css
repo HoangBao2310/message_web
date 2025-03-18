@@ -591,13 +591,15 @@ progress {
 .img-thumbnail {
     height: auto;
     max-width: 100%
+
 }
 
 .img-thumbnail {
     background-color: #fff;
     border: 1px solid #dee2e6;
     border-radius: .5rem;
-    padding: .25rem
+    padding: .25rem;
+    cursor: pointer;
 }
 
 .figure {
@@ -7395,7 +7397,9 @@ fieldset:disabled .btn {
     justify-content: space-between;
     padding: 1rem
 }
-
+.offcanvas-header h5{
+    margin: 0;
+}
 .offcanvas-header .btn-close {
     margin-bottom: -.5rem;
     margin-right: -.5rem;
@@ -7452,7 +7456,9 @@ fieldset:disabled .btn {
 .offcanvas.show {
     transform: none
 }
-
+.offcanvas-body .images-list img{
+    cursor: pointer;
+}
 .clearfix:after {
     clear: both;
     content: "";

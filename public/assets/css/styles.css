@@ -1,60 +1,93 @@
-:root{
+:root {
     --background-color: #f4f4f5;
     --font-family: 'Quicksand', sans-serif;
-    --button-color:#2789df;
-    --text-color:black;
-    --chat-color:white;
-    --border-color:#e4e6e5;
+    --button-color: #005ae0;
+    --text-color:#4d5a71;
+    --chat-color: white;
+    --border-color: #e4e6e5;
 }
-.dark-mode{
-    --text-color:white;
+
+.dark-mode {
+    --text-color: white;
     --background-color: #242526;
     --font-family: 'Quicksand', sans-serif;
-    --button-color:#3b3d3e;
-    --chat-color:#252728;
-    --border-color:#3a3c3d;
+    --button-color: #3b3d3e;
+    --chat-color: #252728;
+    --border-color: #3a3c3d;
 }
-.user-theme{
+
+.user-theme {
     color: var(--text-color);
 }
-.bg-white{
+
+.bg-white {
     --bs-bg-opacity: 0;
 }
-.modal-body{
-    background-color: var(--border-color)!important;
+
+.modal-body {
+    background-color: var(--border-color) !important;
     color: var(--text-color);
 }
-.listfr-item,.friend-item,.listfr-header,.list-group-item,.modal-header,.modal-footer,.friend-request-item,.offcanvas{
-    background-color: var(--border-color)!important;
+
+.listfr-item,
+.friend-item,
+.listfr-header,
+.list-group-item,
+.modal-header,
+.modal-footer,
+.friend-request-item {
+    background-color: var(--border-color) !important;
     color: var(--text-color);
 }
-.border-bottom, .border-top{
-    border-color: var(--border-color)!important;
+.offcanvas{
+    color: var(--text-color);
 }
-.fa-image,.fa-paperclip,.chat-name,.fa-user-plus,.fa-people-group,.friend-name{
-    color: var(--text-color)!important;
+.border-bottom,
+.border-top {
+    border-color: var(--border-color) !important;
 }
-.chatbox1 , .chatbox2, .buttonsent ,.color-chat,.chat-list,.chat-info{
-    background-color: var(--chat-color)!important;
-    color: var(--text-color)!important;
+
+.fa-image,
+.fa-paperclip,
+.chat-name,
+.fa-user-plus,
+.fa-people-group,
+.friend-name {
+    color: var(--text-color) !important;
+}
+
+.chatbox1,
+.chatbox2,
+.color-chat,
+.chat-list {
+    background-color: var(--chat-color) !important;
+    color: var(--text-color) !important;
+}
+.chatbox1{
+    padding: 7px 15px;
 }
 body {
     background: var(--background-color);
     font-family: var(--font-family);
 }
 
-.btn-primary,.button{
+.btn-primary,
+.button {
     border-color: var(--text-color);
     background-color: var(--button-color);
 }
-.btn-outline-primary{
+
+.btn-outline-primary {
     border-color: var(--text-color);
     color: var(--text-color);
 }
-.header-chat{
-    background-color: var(--background-color)!important;
+
+.header-chat {
+    background-color: #fff;
     color: white;
+    padding: 13px;
 }
+
 header .sticky-header {
     position: fixed;
     top: 0;
@@ -327,7 +360,8 @@ footer .icon-footer {
 }
 
 .sidebar {
-    background-color:var(--button-color);
+    background-color: var(--button-color);
+    padding: 25px 0px;
 }
 
 .profile img {
@@ -335,7 +369,7 @@ footer .icon-footer {
     height: 50px;
     border-radius: 50%;
     margin-bottom: 20px;
-    object-fit:cover;
+    object-fit: cover;
 }
 
 .menu-item {
@@ -348,9 +382,36 @@ footer .icon-footer {
     font-size: 24px;
     margin: auto;
 }
-#settingsDropdown::after {
-    display: none !important; 
+
+.sidebar .nav-item {
+    width: 100%;
+
+    text-align: center;
+    margin: 0;
 }
+
+.sidebar .nav-item a {
+    display: block;
+    height: 100%;
+    width: 100%;
+    padding: 15px 0px;
+    line-height: 1;
+    cursor: pointer;
+    transition: all .3s;
+}
+
+.sidebar .nav-item a:hover {
+    background: #0043a8;
+}
+
+.sidebar .nav-item a.active {
+    background: #0043a8;
+}
+
+#settingsDropdown::after {
+    display: none !important;
+}
+
 .fa-people-group {
     margin-right: 5px;
 }
@@ -389,6 +450,20 @@ footer .icon-footer {
     overflow-y: auto;
 }
 
+.chat-list-container .item-user {
+    margin: 0px;
+    padding: 15px;
+    cursor: pointer;
+    transition: all .2s;
+}
+
+.chat-list-container .item-user:hover {
+    background: #cccccc7a;
+}
+
+.chat-list-container .item-user .chat-info {
+    color: #000;
+}
 
 .chat-item:hover {
     background: #f0ecec;
@@ -398,7 +473,7 @@ footer .icon-footer {
     width: 40px;
     height: 40px;
     border-radius: 50%;
-    object-fit:cover;
+    object-fit: cover;
 }
 
 .chat-info h5 {
@@ -419,6 +494,7 @@ footer .icon-footer {
     font-size: 10px;
     color: #888;
 }
+
 .message img.avatar {
     width: 40px;
     height: 40px;
@@ -426,29 +502,33 @@ footer .icon-footer {
     margin-right: 10px;
 }
 
-.message img.img-send{
+.message img.img-send {
     width: 300px;
     height: 200px;
     object-fit: scale-down;
 }
 
 .message-content {
-    background-color: var(--button-color)!important;
-    color: white;
-    border-radius: 5px;
+    background-color: #dbebff;
+    color: #000;
+    border: 1px solid #d1d1d1;
     position: relative;
     max-width: 500px;
     word-break: break-word;
-    margin: 0;
+    box-shadow: 1px 2px 3px #0000002b;
 }
 
 .message-time {
-    font-size: 10px;
-    color: white;
+    font-size: 11px;
+    color: var(--text-color);
     margin-left: 5px;
 }
-
-
+.message-content a{
+    color: var(--button-color);
+}
+.bg-white-text{
+    background-color: #fff;
+}
 .chat-input {
     position: absolute;
     bottom: 0;
@@ -475,16 +555,17 @@ footer .icon-footer {
     color: #777;
     /* Màu sắc của icon */
 }
+
 #messageInput {
-    width: 100%; /* Chiếm toàn bộ chiều ngang */
-    border-radius: 20px; /* Bo tròn các góc */
-    border: 1px solid #ddd; /* Đường viền */
-    resize: none; /* Không cho phép thay đổi kích thước thủ công */
-    overflow: hidden; /* Ẩn phần cuộn ngang, cuộn dọc tự động */
-    min-height: 40px; /* Chiều cao tối thiểu */
-    max-height: 150px; /* Chiều cao tối đa khi tự động mở rộng */
-    padding: 10px; /* Padding cho khoảng cách văn bản */
+    width: 100%;
+    border: 1px solid #ddd;
+    /* resize: none; */
+    overflow: hidden;
+    min-height: 40px;
+    max-height: 150px;
+    padding: 10px 0px;
 }
+
 @media (max-width: 768px) {
 
 
@@ -500,54 +581,85 @@ footer .icon-footer {
 
     }
 }
+
 .group-image-container {
     position: relative;
     display: flex;
-    justify-content: center; /* Căn giữa theo chiều ngang */
-    align-items: center; /* Căn giữa theo chiều dọc */
+    justify-content: center;
+    /* Căn giữa theo chiều ngang */
+    align-items: center;
+    /* Căn giữa theo chiều dọc */
 }
 
 .group-image-circle {
-    width: 100px; /* Đặt kích thước hình tròn */
-    height: 100px; /* Đặt kích thước hình tròn */
-    border-radius: 50%; /* Tạo hình tròn */
-    background-color: #f0f0f0; /* Màu nền cho hình tròn */
+    width: 100px;
+    /* Đặt kích thước hình tròn */
+    height: 100px;
+    /* Đặt kích thước hình tròn */
+    border-radius: 50%;
+    /* Tạo hình tròn */
+    background-color: #f0f0f0;
+    /* Màu nền cho hình tròn */
     display: flex;
-    justify-content: center; /* Căn giữa biểu tượng camera */
-    align-items: center; /* Căn giữa biểu tượng camera */
-    overflow: hidden; /* Ẩn phần tràn ra ngoài */
-    position: relative; /* Để định vị các phần tử bên trong nếu cần */
+    justify-content: center;
+    /* Căn giữa biểu tượng camera */
+    align-items: center;
+    /* Căn giữa biểu tượng camera */
+    overflow: hidden;
+    /* Ẩn phần tràn ra ngoài */
+    position: relative;
+    /* Để định vị các phần tử bên trong nếu cần */
 }
 
 .group-image-circle img {
-    width: 100%; /* Đặt width của ảnh bằng 100% */
-    height: 100%; /* Đặt height của ảnh bằng 100% */
-    object-fit: cover; /* Đảm bảo ảnh được cắt đúng tỷ lệ bên trong hình tròn */
-    position: absolute; /* Đặt vị trí ảnh tuyệt đối trong hình tròn */
-    top: 0; /* Đặt vị trí trên cùng */
-    left: 0; /* Đặt vị trí bên trái */
-    object-fit:cover;
+    width: 100%;
+    /* Đặt width của ảnh bằng 100% */
+    height: 100%;
+    /* Đặt height của ảnh bằng 100% */
+    object-fit: cover;
+    /* Đảm bảo ảnh được cắt đúng tỷ lệ bên trong hình tròn */
+    position: absolute;
+    /* Đặt vị trí ảnh tuyệt đối trong hình tròn */
+    top: 0;
+    /* Đặt vị trí trên cùng */
+    left: 0;
+    /* Đặt vị trí bên trái */
+    object-fit: cover;
 }
 
 .group-image-circle i {
-    font-size: 36px; /* Kích thước font của biểu tượng camera */
-    color: #000; /* Màu sắc của biểu tượng camera */
-    position: absolute; /* Để định vị biểu tượng camera */
+    font-size: 36px;
+    /* Kích thước font của biểu tượng camera */
+    color: #000;
+    /* Màu sắc của biểu tượng camera */
+    position: absolute;
+    /* Để định vị biểu tượng camera */
 }
+
 .form-check-input {
     position: relative;
     top: 15px;
 }
+
 #groupImagePreview {
-    position: absolute; /* Đặt hình ảnh ở vị trí tuyệt đối */
-    top: 0; /* Đặt hình ảnh ở trên cùng */
-    left: 0; /* Đặt hình ảnh ở bên trái */
-    width: 100%; /* Đặt chiều rộng hình ảnh 100% */
-    height: 100%; /* Đặt chiều cao hình ảnh 100% */
-    object-fit: cover; /* Cắt hình ảnh để giữ tỷ lệ mà không bị biến dạng */
-    border-radius: 50%; /* Làm cho hình ảnh cũng hình tròn */
-    display: none; /* Ban đầu ẩn hình ảnh */
+    position: absolute;
+    /* Đặt hình ảnh ở vị trí tuyệt đối */
+    top: 0;
+    /* Đặt hình ảnh ở trên cùng */
+    left: 0;
+    /* Đặt hình ảnh ở bên trái */
+    width: 100%;
+    /* Đặt chiều rộng hình ảnh 100% */
+    height: 100%;
+    /* Đặt chiều cao hình ảnh 100% */
+    object-fit: cover;
+    /* Cắt hình ảnh để giữ tỷ lệ mà không bị biến dạng */
+    border-radius: 50%;
+    /* Làm cho hình ảnh cũng hình tròn */
+    display: none;
+    /* Ban đầu ẩn hình ảnh */
 }
+
 /* ------------------------------------------------------ */
 /* Các mục trong danh sách bạn bè */
 .listfr-item {
@@ -558,106 +670,143 @@ footer .icon-footer {
     border-radius: 10px;
     margin: 10px;
     cursor: pointer;
-  }
-  
-  .listfr-item:hover {
+}
+
+.listfr-item:hover {
     background: #f0ecec;
-  }
-  
-  .listfr-item img {
+}
+
+.listfr-item img {
     width: 40px;
     height: 40px;
     border-radius: 50%;
-    object-fit:cover;
-  }
-  
-  /* Thanh tìm kiếm chính */
+    object-fit: cover;
+}
 
-  
-  .search-bar-main input {
+/* Thanh tìm kiếm chính */
+
+
+.search-bar-main input {
     border-radius: 20px;
     padding: 10px;
     border: 1px solid #ddd;
     flex-grow: 1;
-  }
-  
-  .search-bar-main button {
+    box-shadow: unset;
+}
+
+.search-bar input:focus {
+    color: #212529;
+    background-color: #fff;
+    border-color: var(--button-color);
+    outline: 0;
+    box-shadow: unset;
+}
+
+.search-bar-main button {
     border-radius: 20px;
     padding: 10px 15px;
-  }
-  
-  /* Thông tin chat */
-  .listfr-info h5 {
+}
+
+#searchResults {
+    display: block;
+    width: 100%;
+    height: calc(100vh - 80px);
+    overflow: hidden;
+}
+#searchResults .list-group{
+    display: block;
+    width: 100%;
+    height: 100%;
+    overflow-y: scroll;
+}
+#searchResults .list-group-item {
+    width: 100%;
+    overflow: hidden;
+    background: #f7f7f7 !important;
+}
+
+#searchResults .list-group-item div {
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    gap: 10px;
+}
+#searchResults .list-group-item .info-mess{
+    flex-direction: column;
+    align-items: flex-start;
+}
+/* Thông tin chat */
+.listfr-info h5 {
     margin-bottom: 0;
     font-size: 16px;
-  }
-  
-  .text-center {
+}
+
+.text-center {
     margin-top: 20px;
-  }
-  
-  .listfr-header {
+}
+
+.listfr-header {
     height: 70px;
-  }
-  
-  .listfr-header i {
+}
+
+.listfr-header i {
     font-size: 24px;
     margin-right: 10px;
-  }
-  
-  .listfr-header h3 {
+}
+
+.listfr-header h3 {
     font-size: 20px;
     margin: 0;
     flex-grow: 1;
-  }
-  
-  .listfr-body {
+}
+
+.listfr-body {
     padding: 20px;
     background-color: #f0f0f0;
     flex-grow: 1;
     overflow-y: auto;
-  }
-  
-  .friend-item {
+}
+
+.friend-item {
     display: flex;
     align-items: center;
     padding: 10px 0;
     border-bottom: 1px solid #eee;
     cursor: pointer;
     transition: background-color 0.2s;
-  }
-  
-  .friend-item:hover {
+}
+
+.friend-item:hover {
     background-color: #f0f0f0;
-  }
-  
-  .friend-img {
+}
+
+.friend-img {
     width: 40px;
     height: 40px;
     border-radius: 50%;
     margin-right: 10px;
-    object-fit:cover;
-  }
-  
-  .friend-name {
+    object-fit: cover;
+}
+
+.friend-name {
     font-size: 16px;
-  }
-  
-  .friend-item a {
+}
+
+.friend-item a {
     margin-left: auto;
-  }
-  
-  .friend-item a i {
+}
+
+.friend-item a i {
     font-size: 20px;
     color: #777;
-  }
-  
-  .friend-item:hover a i {
+}
+
+.friend-item:hover a i {
     color: #333;
-  }
-  
-  /* dropdown menu*/
-  .dropdown-menu-custom {
+}
+
+/* dropdown menu*/
+.dropdown-menu-custom {
     display: none;
     position: absolute;
     z-index: 1000;
@@ -666,18 +815,19 @@ footer .icon-footer {
     border-radius: 4px;
     padding: 5px;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-  }
-  
-  .dropdown-menu-custom a {
+}
+
+.dropdown-menu-custom a {
     display: block;
     padding: 5px 10px;
     color: black;
     text-decoration: none;
-  }
-  
-  .dropdown-menu-custom a:hover {
+}
+
+.dropdown-menu-custom a:hover {
     background: #f0f0f0;
-  }
+}
+
 /* css thêm thành viên */
 .form-check {
     display: flex;
@@ -686,20 +836,24 @@ footer .icon-footer {
 }
 
 .form-check-input {
-    margin-right: 8px; /* Khoảng cách giữa checkbox và label */
+    margin-right: 8px;
+    /* Khoảng cách giữa checkbox và label */
     top: 0px;
 }
 
 .form-check-label {
-    margin-left: 0; /* Đảm bảo không có khoảng cách thừa */
+    margin-left: 0;
+    /* Đảm bảo không có khoảng cách thừa */
 }
 
 .pagination {
-    font-size: 0.875rem; /* Điều chỉnh kích thước font chữ */
+    font-size: 0.875rem;
+    /* Điều chỉnh kích thước font chữ */
 }
 
 .pagination .page-item .page-link {
-    padding: 0.5rem 0.75rem; /* Điều chỉnh khoảng cách padding */
+    padding: 0.5rem 0.75rem;
+    /* Điều chỉnh khoảng cách padding */
 }
 
 /* aaaa */
@@ -736,43 +890,59 @@ footer .icon-footer {
 
 /* Ảnh Bìa */
 .cover-image-label img {
-    border: 5px solid transparent; /* Viền mặc định */
-    transition: border 0.3s; /* Hiệu ứng chuyển đổi cho viền */
+    border: 5px solid transparent;
+    /* Viền mặc định */
+    transition: border 0.3s;
+    /* Hiệu ứng chuyển đổi cho viền */
 }
 
 .cover-image-label img:hover {
-    border: 5px solid rgba(0, 123, 255, 0.7); /* Viền khi hover */
+    border: 5px solid rgba(0, 123, 255, 0.7);
+    /* Viền khi hover */
 }
+
 .cover-image-wrapper {
     position: relative;
-    width: 100%; /* Chiếm toàn bộ chiều rộng */
-    height: 200px; /* Chiều cao cố định hoặc điều chỉnh theo nhu cầu */
-    overflow: hidden; /* Ẩn phần vượt ra ngoài */
+    width: 100%;
+    /* Chiếm toàn bộ chiều rộng */
+    height: 200px;
+    /* Chiều cao cố định hoặc điều chỉnh theo nhu cầu */
+    overflow: hidden;
+    /* Ẩn phần vượt ra ngoài */
 }
 
 .cover-image-label {
-    background-size: cover; /* Giữ nguyên tỉ lệ hình ảnh */
-    background-position: center; /* Căn giữa hình ảnh */
-    width: 100%; /* Chiếm toàn bộ chiều rộng */
-    height: 100%; /* Chiếm toàn bộ chiều cao */
+    background-size: cover;
+    /* Giữ nguyên tỉ lệ hình ảnh */
+    background-position: center;
+    /* Căn giữa hình ảnh */
+    width: 100%;
+    /* Chiếm toàn bộ chiều rộng */
+    height: 100%;
+    /* Chiếm toàn bộ chiều cao */
 }
 
 /* Ảnh Đại Diện */
 .text-left {
-    text-align: left; /* Căn giữa ảnh đại diện */
+    text-align: left;
+    /* Căn giữa ảnh đại diện */
 }
 
 .text-left img {
-    border: 3px solid white; /* Viền mặc định cho ảnh đại diện */
-    transition: border 0.3s; /* Hiệu ứng chuyển đổi cho viền */
+    border: 3px solid white;
+    /* Viền mặc định cho ảnh đại diện */
+    transition: border 0.3s;
+    /* Hiệu ứng chuyển đổi cho viền */
 }
 
 .text-left img:hover {
-    border: 3px solid rgba(0, 123, 255, 0.7); /* Viền khi hover */
+    border: 3px solid rgba(0, 123, 255, 0.7);
+    /* Viền khi hover */
 }
 
 .mt-n5 {
-    margin-top: -5rem; /* Điều chỉnh vị trí ảnh đại diện gần với ảnh bìa hơn */
+    margin-top: -5rem;
+    /* Điều chỉnh vị trí ảnh đại diện gần với ảnh bìa hơn */
 }
 
 /* btn 165 */
@@ -820,6 +990,40 @@ footer .icon-footer {
     text-shadow: none;
 }
 
-.nav-link .active {
-    color: #ee2907 !important; 
+.btn-wrap{
+    background: #fff;
+    border: unset;
+    padding: 10px;
+    margin-right: 10px;
+    border-radius: 50%;
+    transition: all .3s;
+}
+.btn-wrap:hover{
+    background-color: #cccccc8f;
+}
+.btn-wrap i{
+    margin: 0;
+    font-size: 18px;
+}
+.buttonsent{    
+    color: var(--button-color);
+}
+.up-file{
+    cursor: pointer;
+        width: 30px;
+        height: 30px;
+        line-height: 30px;
+        text-align: center;
+        border-radius: 5px;
+      transition: all .3s;
+}
+.up-file:hover{
+    background: #cccccc8c;
+}
+.img-thumbnail {
+    background-color: #fff;
+    border: 1px solid #dee2e6;
+    border-radius: .5rem;
+    padding: .25rem;
+    cursor: pointer;
 }

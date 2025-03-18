@@ -7,30 +7,30 @@
             <!-- Left Sidebar -->
             <section class="col-2 col-md-1 sidebar">
                 @include('pages.modal.profile')
-                <div class="d-flex justify-content-center align-items-center">
-                    <div>
+                <div class="d-flex justify-content-center align-items-center w-100">
+                    <div class="w-100">
                         <div class="profile mb-4 mt-1 text-center">
                             <a href="#"><img src="{{ asset(Auth::user()->avatar) }}" alt="Profile Picture"
                                     class="rounded-circle" width="50" height="50" data-bs-toggle="modal"
                                     data-bs-target="#profileModal" style="cursor: pointer;"></a>
                         </div>
                         <ul class="nav flex-column align-items-center">
-                            <li class="nav-item mb-3">
-                                <a href="{{ route('home') }}" class="nav-link p-0">
-                                    <i class="fa-solid fa-message text-white {{ Route::currentRouteNamed('home') ? 'active' : '' }}"
+                            <li class="nav-item">
+                                <a href="{{ route('home') }}" class="nav-link {{ Route::currentRouteNamed('home') ? 'active' : '' }}" >
+                                    <i class="fa-solid fa-message text-white "
                                         style="font-size: 24px;"></i>
                                 </a>
                             </li>
-                            <li class="nav-item mb-3">
-                                <a href="{{ route('friends.list') }}" class="nav-link p-0">
-                                    <i class="fa-solid fa-user text-white {{ Route::currentRouteNamed('friends.list') ? 'active' : '' }}"
+                            <li class="nav-item">
+                                <a href="{{ route('friends.list') }}" class="nav-link {{ Route::currentRouteNamed('friends.list') ? 'active' : '' }}">
+                                    <i class="fa-solid fa-user text-white "
                                         style="font-size: 24px;"></i>
                                 </a>
                             </li>
 
-                            <li class="nav-item mb-3">
-                                <a href="{{ route('logout') }}" class="nav-link p-0">
-                                    <i class="fa-solid fa-arrow-right-from-bracket text-white {{ Route::currentRouteNamed('logout') ? 'active' : '' }}"
+                            <li class="nav-item">
+                                <a href="{{ route('logout') }}" class="nav-link {{ Route::currentRouteNamed('logout') ? 'active' : '' }}">
+                                    <i class="fa-solid fa-arrow-right-from-bracket text-white "
                                         style="font-size: 24px;"></i>
                                 </a>
                             </li>
@@ -42,20 +42,20 @@
             <!-- Chat List -->
             <section class="chat-list d-none d-md-block col-md-3 col-xs-3 bg-white px-0"
                 style="border-right: 0.5px solid rgba(224, 226, 225, 0.874);">
-                <div class="search-bar mb-4 d-flex align-items-center border-bottom px-3">
+                <div class="search-bar mb-4 d-flex align-items-center border-bottom p-3">
                     <input type="text" class="form-control me-2" placeholder="{{ __('messages.search') }}"
                         id="searchMessages" oninput="searchMessages()">
-                    <button class="btn" style="border: none; background: none; padding-left: 2px;"
+                    <button class="btn-wrap"
                         data-bs-toggle="modal" data-bs-target="#addFriendModal">
                         <i class="fa-solid fa-user-plus"></i>
                     </button>
-                    <button type="button" style="border: none; background: none; padding-left: 2px;"
+                    <button class="btn-wrap" type="button"
                         data-bs-toggle="modal" data-bs-target="#createGroupModal">
                         <a href="#"><i class="fa-solid fa-people-group"></i></a>
                     </button>
                 </div>
 
-                <div id="searchResults" class="mt-2" style="display: none;">
+                <div id="searchResults" style="display: none;">
                     <ul class="list-group" id="searchResultsList"></ul>
                 </div>
 
@@ -285,7 +285,7 @@
                         listItem.innerHTML = `
                         <div class="d-flex align-items-center">
                             <img src="${item.avatar_url}" alt="Avatar" class="rounded-circle me-2" width="40" height="40">
-                            <div>
+                            <div class="info-mess">
                                 <strong>${item.sender_name} - ${item.conversation_name}</strong>
                                 <p class="mb-0">${item.message}</p>
                                 <small class="text-muted">${item.created_at}</small>

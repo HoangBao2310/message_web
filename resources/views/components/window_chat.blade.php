@@ -15,7 +15,7 @@
         .box-chat {
             display: flex;
             flex-direction: column-reverse;
-            margin-bottom: 75px;
+            margin-bottom: 85px;
         }
 
         #messageInput:focus-visible {
@@ -30,7 +30,7 @@
 @endpush
 
 
-<div class="header-chat bg-white px-2 py-3 border-bottom">
+<div class="header-chat  border-bottom">
 
     <div class="d-flex align-items-center justify-content-between">
         <div class="d-flex">
@@ -205,13 +205,13 @@
 
 <div id="chat-box" class="box-chat chat-messages flex-grow-1 p-3 overflow-auto">
     @foreach ($conversation->messages as $message)
-        <div class="message d-flex mb-3 {{ $message->sender_id === Auth::id() ? 'justify-content-end' : '' }}">
+        <div style="padding-bottom: 15px;" class="message d-flex  {{ $message->sender_id === Auth::id() ? 'justify-content-end' : '' }}">
             @if ($message->sender_id !== Auth::id())
                 <img src="{{ $message->sender->avatar ? asset($message->sender->avatar) : asset('/assets/images/avatar_default.jpg') }}"
                     alt="User" class="rounded-circle me-3 avatar" style="object-fit: cover">
             @endif
             <div
-                class="message-content {{ $message->sender_id === Auth::id() ? 'bg-primary text-white align-items-end' : 'bg-white' }} p-2 rounded d-flex flex-column">
+                class="message-content {{ $message->sender_id === Auth::id() ? ' align-items-end' : 'bg-white-text' }} p-2 rounded d-flex flex-column">
                 @if ($conversation->is_group && $message->sender_id !== Auth::id())
                     <p class="mb-0 text-muted">{{ $message->sender->name }}</p>
                 @endif
@@ -220,7 +220,7 @@
                 @elseif ($message->type === 'image')
                     <img src="{{ asset($message->message) }}" alt="Image" class="img-fluid img-send">
                 @elseif ($message->type === 'file')
-                    <a href="{{ asset($message->message) }}" target="_blank" class="{{ $message->sender_id === Auth::id() ? 'text-white' : 'text-dark'}}">
+                    <a href="{{ asset($message->message) }}" target="_blank" class="{{ $message->sender_id === Auth::id() ? '' : 'text-dark'}}">
                         {{ basename($message->message) }}
                     </a>
                 @endif
@@ -243,18 +243,18 @@
         @csrf
         <div class="">
             <div class="d-flex w-100 flex-column ">
-                <div class="chatbox1 px-5 d-flex py-2 ">
-                    <a class="me-3" title="Chọn ảnh" id="imageIcon"><i
+                <div class="chatbox1 d-flex">
+                    <a class="me-3 up-file" title="Chọn ảnh" id="imageIcon"><i
                             class="fa-solid fa-image fa-lg "></i></a>
-                    <a title="Chọn file" id="fileIcon"><i class="fa-solid fa-paperclip fa-lg "></i></a>
+                    <a class="up-file" title="Chọn file" id="fileIcon"><i class="fa-solid fa-paperclip fa-lg "></i></a>
                 </div>
 
-                <div class="chatbox1 d-flex w-100 justify-content-space-evenly border-top border-primary px-4">
+                <div class="chatbox1 d-flex w-100 justify-content-space-evenly border-top border-primary">
                     <textarea class="chatbox2 w-100 border-0" id="messageInput" placeholder="{{ __('messages.enterSendMessages') }}"
                         rows="1" oninput="toggleSendIcon()" style="resize: none; overflow: hidden"></textarea>
 
                     <button class="border-0 bg-white" type="submit" id="sendIcon" style="display: none;">
-                        <i class="buttonsent fa-solid fa-paper-plane" style="font-size: 25px;"></i>
+                        <i class="buttonsent fa-solid fa-paper-plane" style="font-size: 22px;"></i>
                     </button>
                 </div>
 
