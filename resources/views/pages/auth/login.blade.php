@@ -6,11 +6,11 @@
 
 @section('content-main')
     @include('components.toast')
-    <section class=" p-3 p-md-4 p-xl-5">
+    <section class="wrap-login p-3 p-md-4 p-xl-5">
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-12 col-xxl-11">
-                    <div class="border-light shadow-sm rounded">
+                    <div class=" rounded">
                         <div class="g-0">
                             <div class="col-12 d-flex align-items-center justify-content-center rounded">
                                 <div class="col-12 col-lg-11 col-xl-10">
@@ -77,7 +77,7 @@
                                                 <div class="col-12">
                                                     <div class="form-floating mb-3">
                                                         <input type="email"
-                                                            class="form-control @error('email') is-invalid @enderror"
+                                                            class="form-wrap form-control @error('email') is-invalid @enderror"
                                                             name="email" id="email" placeholder="name@example.com"
                                                             value="{{ old('email') }}" required>
                                                         <label for="email"
@@ -92,7 +92,7 @@
                                                 <div class="col-12">
                                                     <div class="form-floating mb-3 position-relative">
                                                         <input type="password"
-                                                            class="form-control @error('password') is-invalid @enderror"
+                                                            class="form-wrap form-control @error('password') is-invalid @enderror"
                                                             name="password" id="password" value=""
                                                             placeholder="Password" required>
                                                         <label for="password"
@@ -112,7 +112,7 @@
                                                 </div>
                                                 <div class="col-12">
                                                     <div class="d-grid">
-                                                        <button class="btn btn-lg border-coins-refund-2 color-coins-refund"
+                                                        <button class="btn btn-lg"
                                                             type="submit">{{ __('messages.login') }}</button>
                                                     </div>
                                                 </div>

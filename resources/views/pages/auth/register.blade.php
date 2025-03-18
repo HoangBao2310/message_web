@@ -9,19 +9,19 @@
 @section('content-main')
     @include('components.toast')
 
-    <section class=" p-3 p-md-4 p-xl-5">
+    <section class="wrap-login p-3 p-md-4 p-xl-5">
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-12 col-xxl-11">
-                    <div class="border-light shadow-sm rounded">
+                    <div class=" rounded">
                         <div class="g-0">
                             <div class="col-12 d-flex align-items-center justify-content-center rounded">
                                 <div class="col-12 col-lg-11 col-xl-10">
-                                    <div class="card-body p-3 p-md-4 p-xl-5">
+                                    <div class="card-body p-3 p-md-4 p-xl-4">
                                         <div class="row">
                                             <div class="col-12">
-                                                <div class="mb-5">
-                                                    <div class="text-center mb-4">
+                                                <div class="mb-2">
+                                                    <div class="text-center mb-2">
                                                         <a href="{{ route('home') }}">
                                                             <img class="logohoanxu"
                                                                 src="{{ asset('assets/images/logo/logochat.png') }}"
@@ -33,7 +33,7 @@
                                             </div>
                                         </div>
 
-                                        <div class="text-center">
+                                        {{-- <div class="text-center">
 
                                             <a href="{{ route('google.login') }}" class="btn-165 mb-3 text-center">
                                                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 262">
@@ -71,14 +71,14 @@
                                                 <span>Đăng nhập bằng tài khoản khác</span>
                                             </a>
                                             
-                                        </div>
+                                        </div> --}}
 
                                         <form id="registerForm">
                                             <div class="row gy-3 gx-0 overflow-hidden">
                                                 <div class="col-12 form-email">
                                                     <div class="form-floating mb-3">
                                                         <input type="email"
-                                                            class="form-control @error('email') is-invalid @enderror"
+                                                            class="form-wrap form-control @error('email') is-invalid @enderror"
                                                             name="email" id="email" placeholder="name@example.com"
                                                             value="{{ old('email') }}" required>
                                                         <label for="email" class="form-label">Nhập email của bạn</label>
@@ -91,7 +91,7 @@
 
                                                 <div class="box-button col-12">
                                                     <button
-                                                        class="w-100 btn btn-lg border-coins-refund-2 color-coins-refund"
+                                                        class=" w-100 btn btn-lg "
                                                         type="submit" id="btn-send">Tiếp tục</button>
                                                 </div>
 
@@ -159,7 +159,7 @@
 
                             $('#otpPasswordContainer').html(`
                         <span class="text-center mb-1">${response.message}</span>
-                        <div class="otp-container justify-content-center mb-3" id="input-otp">
+                        <div class="otp-container justify-content-center mb-2" id="input-otp">
                             <input type="text" maxlength="1" class="otp-input" oninput="handleInput(this)" />
                             <input type="text" maxlength="1" class="otp-input" oninput="handleInput(this)" />
                             <input type="text" maxlength="1" class="otp-input" oninput="handleInput(this)" />
@@ -170,24 +170,24 @@
                         </div>
                         <div class="col-12">
                             <div class="form-floating mb-3 position-relative">
-                                <input type="password" class="form-control" name="password" id="password" value="" placeholder="Password" required>
+                                <input type="password" class="form-wrap form-control" name="password" id="password" value="" placeholder="Password" required>
                                 <label for="password" class="form-label">Mật khẩu</label>
                                 <i class="fa fa-eye position-absolute top-50 end-0 translate-middle-y me-3 cursor-pointer" id="togglePassword"></i>
                             </div>
                             <div class="form-floating mb-3 position-relative">
-                                <input type="text" class="form-control" name="name" id="name" value="" placeholder="Name" required>
+                                <input type="text" class="form-wrap form-control" name="name" id="name" value="" placeholder="Name" required>
                                 <label for="name" class="form-label">Name</label>
                             </div>
                             <div class="form-floating mb-3 position-relative">
-                                <input type="text" class="form-control" name="phone" id="phone" value="" placeholder="Phone" required>
+                                <input type="text" class="form-wrap form-control" name="phone" id="phone" value="" placeholder="Phone" required>
                                 <label for="phone" class="form-label">Phone</label>
                             </div>
                             <div class="form-floating mb-3 position-relative">
-                                <input type="date" class="form-control" name="dob" id="dob" value="" placeholder="Date of Birth" required>
+                                <input type="date" class="form-wrap form-control" name="dob" id="dob" value="" placeholder="Date of Birth" required>
                                 <label for="dob" class="form-label">Date of Birth</label>
                             </div>
                             <div class="form-floating mb-3 position-relative">
-                                <select class="form-control" name="gender" id="gender" required>
+                                <select class="form-wrap form-control" name="gender" id="gender" required>
                                     <option value="male">Male</option>
                                     <option value="female">Female</option>
                                     <option value="other">Other</option>
@@ -198,7 +198,7 @@
                     `);
 
                             $('.box-button').html(`
-                        <button class="w-100 btn btn-lg border-coins-refund-2 color-coins-refund" type="button" id="submitOtpPassword">Xác nhận</button>
+                        <button class="w-100 btn btn-lg" type="button" id="submitOtpPassword">Xác nhận</button>
                     `);
 
                             $('#submitOtpPassword').on('click', function() {
