@@ -85,23 +85,11 @@ $(document).ready(function () {
 // Danh sách bạn bè
 document.addEventListener('DOMContentLoaded', function () {
     const friendsListModal = document.getElementById('friendsListModal');
-    const friendsList = document.getElementById('friendsList');
-
-    // Gọi hàm loadFriendsList khi modal được mở
-    friendsListModal.addEventListener('show.bs.modal', function () {
-        loadFriendsList();
-    });
-
-    
+    const friendsList = document.getElementById('friendsList'); 
      // Hàm asset để tạo đường dẫn đầy đủ
      function asset(path) {
         return `${window.location.origin}/${path}`;
     }
-});
-
-// Gọi hàm loadFriendRequests khi modal được mở
-document.getElementById('showFriendRequestsModal').addEventListener('click', function () {
-    loadFriendRequests();
 });
 
 // hàm xử lý tìm kiếm người dùng
@@ -496,23 +484,6 @@ function previewImage(event) {
             });
     }
 
-         //Hàm chuyển đổi ngôn ngữ
-         document.getElementById('saveSettingsBtn').addEventListener('click', function() {
-            var selectedLang = document.getElementById('languageSelect').value;
-            // Gửi yêu cầu đến route để thay đổi ngôn ngữ
-            fetch(`/language/${selectedLang}`)
-            .then(response => {
-                if (response.ok) {
-                    // Tái tải trang để áp dụng ngôn ngữ mới
-                    location.reload();
-                } else {
-                    // Xử lý lỗi nếu cần
-                    console.error('Error changing language');
-                }
-            })
-            .catch(error => console.error('Fetch error:', error));
-        });
-
 
 // ---------------Modal tạo nhóm------------------
 
@@ -680,36 +651,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 });
-document.addEventListener('DOMContentLoaded', function () {
-    const themeSelect = document.getElementById('themeSelect');
-    const saveSettingsBtnTheme = document.getElementById('saveSettingsBtnTheme');
-    const currentTheme = localStorage.getItem('theme') || 'light';
 
-    // Áp dụng theme hiện tại từ localStorage
-    if (currentTheme === 'dark') {
-        document.body.classList.add('dark-mode');
-        themeSelect.value = 'dark'; // Dark Mode tương ứng với 'dark'
-    } else {
-        themeSelect.value = 'light'; // Light Mode tương ứng với 'light'
-    }
-
-    // Lưu theme khi người dùng nhấn nút "Đồng ý"
-    saveSettingsBtnTheme.addEventListener('click', function () {
-        const selectedTheme = themeSelect.value;
-        if (selectedTheme === 'dark') { // Nếu chọn "Dark Mode"
-            document.body.classList.add('dark-mode');
-            localStorage.setItem('theme', 'dark');
-        } else { // Nếu chọn "Light Mode"
-            document.body.classList.remove('dark-mode');
-            localStorage.setItem('theme', 'light');
-        }
-
-        // Ẩn modal sau khi lưu cài đặt
-        const modalElement = document.getElementById('themeSettingsModal');
-        const modal = bootstrap.Modal.getInstance(modalElement);
-        modal.hide();
-    });
-});
 
 
 document.addEventListener("DOMContentLoaded", function() {

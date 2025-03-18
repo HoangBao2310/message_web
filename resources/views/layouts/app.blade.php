@@ -91,10 +91,10 @@
                             pattern="^[\w\.-]+@[a-zA-Z\d\.-]+\.[a-zA-Z]{2,}$"
                             title="Vui lòng nhập định dạng email hợp lệ." maxlength="100">
                     </div>
-
+                    
                     <div class="col-2">
-                        <button type="button" class="btn btn-primary" id="searchButton" disabled><i
-                                class="fa-solid fa-magnifying-glass"></i></button>
+                        <button type="button" class="btn btn-primary" id="searchButton"><i
+                                class="fa-solid fa-magnifying-glass"></i> </button>
                     </div>
                 </div>
 
@@ -120,8 +120,7 @@
                             style="display: none;">{{ __('messages.sendFriendRequest') }}</button>
                         <button type="button" class="btn btn-danger" id="cancelRequestButton"
                             style="display: none;">{{ __('messages.revokeRequest') }}</button>
-                        <button type="button" class="btn btn-info" id="messageButtonn"
-                            style="display: none;">{{ __('messages.sendaMessage') }}</button> <!-- Nút nhắn tin -->
+                        
                         <button type="button" class="btn btn-success" id="acceptRequestButton"
                             style="display: none; margin-right: 5px; ">{{ __('messages.accept') }}</button>
                         <button type="button" class="btn btn-danger" id="declineRequestButton"

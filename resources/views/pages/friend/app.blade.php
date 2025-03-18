@@ -25,7 +25,7 @@
 </div>
 <div class="listfr-item rounded" id="friendRequests" style="padding: 10px; margin-bottom: 10px; background-color: #f8f9fa;">
     <div class="d-flex align-items-center">
-        <i class="fa-solid fa-user-plus me-2" id="showFriendRequestsModal" style="cursor: pointer; font-size: 24px; color: #28a745;"></i>
+        <i class="fa-solid fa-user-plus me-2" id="showFriendRequestsModal" style="cursor: pointer; font-size: 24px; color: #28a745 !important; "></i>
         <div class="listfr-info">
             <a href="{{ route('friend.requests') }}" class="mb-0" style="text-decoration: none; color: #28a745; font-weight: bold;">{{ __('messages.friendInvitation') }}</a>
 

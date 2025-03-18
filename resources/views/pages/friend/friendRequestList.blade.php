@@ -21,7 +21,7 @@
 @endsection
 
 @section('content-2-1')
-<div class="listfr-header bg-white p-3 border-bottom d-flex align-items-center">
+<div class="listfr-header p-3 border-bottom d-flex align-items-center">
     <i class="fa-solid fa-user-group me-2"></i>
     <h3 class="mb-0">{{__('messages.friendRequestList')}}</h3>
 </div>

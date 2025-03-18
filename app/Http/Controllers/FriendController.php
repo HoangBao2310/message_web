@@ -354,7 +354,7 @@ public function showFriendsList()
         ->select('users.id', 'users.name', 'users.email', 'users.avatar', 'users.gender','users.phone','users.dob','users.cover_image','users.description', 'friends.created_at as friendship_start')
         ->distinct()
         ->paginate(10); // Số lượng bạn bè hiển thị trên mỗi trang
-
+        
     return view('pages.friend.listfriend', ['friends' => $friends, 'message' => null]);
 }
     //hủy kết bạn
@@ -422,7 +422,7 @@ public function showFriendsList()
                 $query->orWhere('users.name', 'LIKE', "%{$keyword}%");
             }
         })
-        ->select('users.id', 'users.name', 'users.email', 'users.avatar', 'users.gender', 'friends.created_at as friendship_start')
+        ->select('users.*', 'friends.created_at as friendship_start')
         ->distinct()
         ->paginate(10); // Số lượng bạn bè hiển thị trên mỗi trang
 
@@ -431,7 +431,7 @@ public function showFriendsList()
     if ($friends->isEmpty()) {
         $message = 'Không tìm thấy kết quả phù hợp.';
     }
-
+   
     return view('pages.friend.listfriend', ['friends' => $friends, 'query' => $query, 'message' => $message]);
 }
 

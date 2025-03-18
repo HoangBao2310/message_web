@@ -115,7 +115,7 @@
 @section('content-2-1')
 
 <div class="window-chat">
-    <div class="listfr-header bg-white p-3 border-bottom d-flex align-items-center">
+    <div class="listfr-header p-3 border-bottom d-flex align-items-center">
         <i class="fa-solid fa-user-group me-2"></i>
         <h3 class="mb-0">{{ __('messages.friendList') }} ({{ $friends->total() }})</h3>
 
@@ -168,7 +168,7 @@
         @endforeach
 
         <div class="d-flex justify-content-center mt-3">
-            {{ $friends->links('pagination::bootstrap-5') }}
+            {{ $friends->links('pagination::bootstrap-4') }}
         </div>
         @endif
     </div>

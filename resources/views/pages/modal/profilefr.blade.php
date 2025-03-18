@@ -9,11 +9,12 @@
             <div class="modal-body">
                 <!-- Ảnh Bìa -->
                 <div class="text-center mb-4">
-                    <img src="{{ $friend->cover_image ?? 'assets/images/logo/uocmo.jpg' }}" class="img-fluid rounded" alt="Cover Image" style="max-height: 200px; width: 100%; object-fit: cover;">
+                    <img src="{{ $friend->cover_image ? asset($friend->cover_image) : asset('assets/images/logo/uocmo.jpg') }}" class="img-fluid rounded" alt="Cover Image" style="max-height: 200px; width: 100%; object-fit: cover;">
                 </div>
+                
                 <!-- Ảnh Đại Diện Bạn Bè -->
                 <div class="text-center mb-4" style="margin-top: -60px;">
-                    <img src="{{ $friend->avatar }}" class="rounded-circle border border-3 border-light" width="100" height="100" alt="Avatar">
+                    <img src="{{ $friend->avatar ? asset($friend->avatar) : asset('assets/images/default-avatar.png') }}" class="rounded-circle border border-3 border-light" width="100" height="100" alt="Avatar">
                 </div>
                 <div class="text-center">
                     <h6 class="fw-bold">{{ $friend->name }}</h6>
@@ -41,6 +42,7 @@
                     </div>
                     <div class="col-8 mb-3">
                         <label class="fw-bold">
+                           
                             {{ $friend->dob ? \Carbon\Carbon::parse($friend->dob)->format('d/m/Y') : '' }}
                         </label>
                     </div>
