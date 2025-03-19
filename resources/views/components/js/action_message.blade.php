@@ -21,7 +21,7 @@
                     ${!isSender ? `
                         <img src="${avatarUrl}" alt="User" class="rounded-circle me-3 avatar" style="object-fit: cover" width="40" height="40">
                     ` : ''}
-                    <div class="message-content ${isSender ? 'bg-primary text-white align-items-end' : 'bg-white'} p-2 rounded d-flex flex-column">
+                    <div class="message-content ${isSender ? ' align-items-end' : 'bg-white'} p-2 rounded d-flex flex-column">
                         ${message.conversation.is_group && !isSender ? `<p class="mb-0 text-muted">${message.sender.name}</p>` : ''}
                         ${messageContent}
                         <span class="message-time small ">${message.time_diff}</span>

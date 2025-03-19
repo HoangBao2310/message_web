@@ -225,7 +225,7 @@ class UserController extends Controller
 
             DB::commit();
 
-            if (isset($imageBackup) && File::exists($imageBackup)) {
+            if (isset($imageBackup) && File::exists($imageBackup) && !Str::contains($imageBackup, 'assets/images')) {
                 File::delete($imageBackup);
             }
 
@@ -352,7 +352,7 @@ public function update(Request $request)
     }
     // Xử lý tải lên ảnh bìa
     if ($request->hasFile('cover_image')) {
-        if ($user->cover_image && file_exists(public_path($user->cover_image))) {
+        if ($user->cover_image && file_exists(public_path($user->cover_image)) && !Str::contains($user->cover_image, 'assets/images')) {
             unlink(public_path($user->cover_image));
         }
 

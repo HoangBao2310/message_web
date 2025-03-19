@@ -85,7 +85,7 @@ $(document).ready(function () {
 // Danh sách bạn bè
 document.addEventListener('DOMContentLoaded', function () {
     const friendsListModal = document.getElementById('friendsListModal');
-    const friendsList = document.getElementById('friendsList'); 
+    const friendsList = document.getElementById('friendsList');
      // Hàm asset để tạo đường dẫn đầy đủ
      function asset(path) {
         return `${window.location.origin}/${path}`;
@@ -115,7 +115,7 @@ document.getElementById('searchButton').addEventListener('click', function () {
             const resultUserName = document.getElementById('resultUserName');
             const sendRequestButton = document.getElementById('sendRequestButton');
             const cancelRequestButton = document.getElementById('cancelRequestButton');
-            const messageButtonn = document.getElementById('messageButtonn');
+           
             const acceptRequestButton = document.getElementById('acceptRequestButton');
             const declineRequestButton = document.getElementById('declineRequestButton');
 
@@ -132,13 +132,13 @@ document.getElementById('searchButton').addEventListener('click', function () {
 
                 searchResult.style.display = "block";
 
-                checkFriendRequestStatus(data.user.id, sendRequestButton, cancelRequestButton, acceptRequestButton, declineRequestButton, messageButtonn);
+                checkFriendRequestStatus(data.user.id, sendRequestButton, cancelRequestButton, acceptRequestButton, declineRequestButton);
             } else {
                 showToast(data.message, 'error');
             }
         })
         .catch(error => {
-            showToast('Có lỗi xảy ra. Vui lòng thử lại sau.', 'error');
+            showToast('Có lỗi xảy ra. Vui lòng thử lại sau. 1', 'error');
         });
 });
 
@@ -146,23 +146,25 @@ document.addEventListener('DOMContentLoaded', function () {
     const emailInput = document.getElementById('friendEmail');
     const searchButton = document.getElementById('searchButton');
 
-    // Hàm kiểm tra tính hợp lệ của email
+    // Avoid using regex for email validation and rely on the built-in functionality
     function validateEmail() {
-        return emailInput.checkValidity();
+        // Let the browser handle email validation without a custom regex
+        if (!emailInput) return false;
+        
+        const email = emailInput.value.trim();
+        return email.length > 0 && email.includes('@') && email.includes('.');
     }
 
     // Sự kiện khi người dùng nhập vào ô email
-    emailInput.addEventListener('input', function () {
-        if (validateEmail()) {
-            searchButton.disabled = false;
-        } else {
-            searchButton.disabled = true;
-        }
-    });
+    if (emailInput && searchButton) {
+        emailInput.addEventListener('input', function () {
+            searchButton.disabled = !validateEmail();
+        });
+    }
 });
 
 // Hàm kiểm tra trạng thái yêu cầu kết bạn
-function checkFriendRequestStatus(userId, sendRequestButton, cancelRequestButton) {
+function checkFriendRequestStatus(userId, sendRequestButton, cancelRequestButton, acceptRequestButton, declineRequestButton, messageButtonn) {
     fetch('/check-friend-request-status', {
         method: 'POST',
         headers: {
@@ -173,49 +175,58 @@ function checkFriendRequestStatus(userId, sendRequestButton, cancelRequestButton
     })
         .then(response => response.json())
         .then(data => {
+            // Kiểm tra xem các button có tồn tại không trước khi sử dụng
             if (data.status === "friends") {
-                messageButtonn.style.display = 'block';
-                sendRequestButton.style.display = 'none';
-                cancelRequestButton.style.display = 'none';
-                acceptRequestButton.style.display = 'none';
-                declineRequestButton.style.display = 'none';
+                if (messageButtonn) messageButtonn.style.display = 'block';
+                if (sendRequestButton) sendRequestButton.style.display = 'none';
+                if (cancelRequestButton) cancelRequestButton.style.display = 'none';
+                if (acceptRequestButton) acceptRequestButton.style.display = 'none';
+                if (declineRequestButton) declineRequestButton.style.display = 'none';
                 //hai người đã là bạn bè
             } else if (data.status === "sent") {
-                sendRequestButton.style.display = 'none';
-                cancelRequestButton.style.display = 'block';
-                messageButtonn.style.display = 'none';
-                acceptRequestButton.style.display = 'none';
-                declineRequestButton.style.display = 'none';
+                if (sendRequestButton) sendRequestButton.style.display = 'none';
+                if (cancelRequestButton) cancelRequestButton.style.display = 'block';
+                if (messageButtonn) messageButtonn.style.display = 'none';
+                if (acceptRequestButton) acceptRequestButton.style.display = 'none';
+                if (declineRequestButton) declineRequestButton.style.display = 'none';
             } else if (data.status === "received") {
-                sendRequestButton.style.display = 'none';
-                cancelRequestButton.style.display = 'none';
-                messageButtonn.style.display = 'none';
-                acceptRequestButton.style.display = 'block';
-                declineRequestButton.style.display = 'block';
+                if (sendRequestButton) sendRequestButton.style.display = 'none';
+                if (cancelRequestButton) cancelRequestButton.style.display = 'none';
+                if (messageButtonn) messageButtonn.style.display = 'none';
+                if (acceptRequestButton) acceptRequestButton.style.display = 'block';
+                if (declineRequestButton) declineRequestButton.style.display = 'block';
 
-                acceptRequestButton.onclick = function () {
-                    acceptSearchRequest(data.request_id);
-                };
+                if (acceptRequestButton) {
+                    acceptRequestButton.onclick = function () {
+                        acceptSearchRequest(data.request_id);
+                    };
+                }
 
-                declineRequestButton.onclick = function () {
-                    declineSearchRequest(data.request_id);
-                };
+                if (declineRequestButton) {
+                    declineRequestButton.onclick = function () {
+                        declineSearchRequest(data.request_id);
+                    };
+                }
                 //người này đã gửi lời mời kết bạn cho bạn
             } else {
-                sendRequestButton.style.display = 'block';
-                cancelRequestButton.style.display = 'none';
-                messageButtonn.style.display = 'none';
-                acceptRequestButton.style.display = 'none';
-                declineRequestButton.style.display = 'none';
+                if (sendRequestButton) sendRequestButton.style.display = 'block';
+                if (cancelRequestButton) cancelRequestButton.style.display = 'none';
+                if (messageButtonn) messageButtonn.style.display = 'none';
+                if (acceptRequestButton) acceptRequestButton.style.display = 'none';
+                if (declineRequestButton) declineRequestButton.style.display = 'none';
             }
 
-            sendRequestButton.onclick = function () {
-                sendFriendRequest(userId);
-            };
+            if (sendRequestButton) {
+                sendRequestButton.onclick = function () {
+                    sendFriendRequest(userId);
+                };
+            }
 
-            cancelRequestButton.onclick = function () {
-                cancelFriendRequest(userId);
-            };
+            if (cancelRequestButton) {
+                cancelRequestButton.onclick = function () {
+                    cancelFriendRequest(userId);
+                };
+            }
         })
         .catch(error => {
             saveToast('Có lỗi xảy ra. Vui lòng thử lại sau.', 'error');
@@ -242,7 +253,7 @@ function sendFriendRequest(userId) {
             }
         })
         .catch(error => {
-            showToast('Có lỗi xảy ra. Vui lòng thử lại sau.', 'error');
+            showToast('Có lỗi xảy ra. Vui lòng thử lại sau. 3', 'error');
         });
 }
 
@@ -266,7 +277,7 @@ function cancelFriendRequest(userId) {
             }
         })
         .catch(error => {
-            showToast('Có lỗi xảy ra. Vui lòng thử lại sau.', 'error');
+            showToast('Có lỗi xảy ra. Vui lòng thử lại sau. 4', 'error');
         });
 }
 
@@ -287,13 +298,13 @@ function acceptSearchRequest(requestId) {
                 // Cập nhật lại trạng thái của các nút trong ô tìm kiếm
                 document.getElementById('acceptRequestButton').style.display = 'none';
                 document.getElementById('declineRequestButton').style.display = 'none';
-                document.getElementById('messageButtonn').style.display = 'block';
+               
             } else {
                 showToast(data.message, 'error');
             }
         })
         .catch(error => {
-            showToast('Có lỗi xảy ra. Vui lòng thử lại sau.', 'error');
+            showToast('Có lỗi xảy ra. Vui lòng thử lại sau. 5', 'error');
         });
 }
 
@@ -320,7 +331,7 @@ function declineSearchRequest(requestId) {
             }
         })
         .catch(error => {
-            showToast('Có lỗi xảy ra. Vui lòng thử lại sau.', 'error');
+            showToast('Có lỗi xảy ra. Vui lòng thử lại sau. 6', 'error');
         });
 }
 // hàm xử lý lời mời kết bạn
@@ -368,7 +379,7 @@ function loadFriendRequests() {
             }
         })
         .catch(error => {
-            saveToast('Có lỗi xảy ra. Vui lòng thử lại sau.', 'error');
+            saveToast('Có lỗi xảy ra. Vui lòng thử lại sau. 7', 'error');
         });
         
 }
@@ -399,7 +410,7 @@ function acceptRequest(requestId) {
             }
         })
         .catch(error => {
-            showToast('Có lỗi xảy ra. Vui lòng thử lại sau.', 'error');
+            showToast('Có lỗi xảy ra. Vui lòng thử lại sau. 8', 'error');
         });
 }
 
@@ -423,7 +434,7 @@ function declineRequest(requestId) {
             }
         })
         .catch(error => {
-            showToast('Có lỗi xảy ra. Vui lòng thử lại sau.', 'error');
+            showToast('Có lỗi xảy ra. Vui lòng thử lại sau. 9', 'error');
         });
 }
 
@@ -480,10 +491,9 @@ function previewImage(event) {
                 }
             })
             .catch(error => {
-                saveToast('Có lỗi xảy ra. Vui lòng thử lại sau.', 'error');
+                saveToast('Có lỗi xảy ra. Vui lòng thử lại sau. 10', 'error');
             });
     }
-
 
 // ---------------Modal tạo nhóm------------------
 
@@ -492,57 +502,62 @@ function previewImage(event) {
 
 // ------------------------Đóng---------------------
 $(document).ready(function() {
-    // Khởi tạo modal Thêm thành viên
-    const addMembersModal = new bootstrap.Modal(document.getElementById('addMembersModal'));
-
-    // Sự kiện mở modal
-    $(document).on('click', '.openAddMembersModal', function() {
-        const conversationId = $(this).data('conversation-id');
-        const isGroup = $(this).data('is-group');
-
-        if (isGroup) {
-            loadFriends(conversationId);
-            addMembersModal.show();
-        } else {
-            // Nếu không phải nhóm, không làm gì cả
-            console.log('Cuộc trò chuyện này không phải là nhóm.');
-        }
-    });
-
-    // Sự kiện thêm thành viên đã chọn
-    $('#addSelectedMembers').on('click', function() {
-        const selectedMembers = [];
-        $('#addMembersModal .form-check-input:checked').each(function() {
-            selectedMembers.push($(this).val());
-        });
-
-        // Gửi danh sách bạn bè được chọn đến server để thêm vào nhóm chat
-        const conversationId = $('#conversation_id').val();
-        $.ajax({
-            url: `/conversation/${conversationId}/add-members`,
-            method: 'POST',
-            contentType: 'application/json',
-            headers: {
-                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-            },
-            data: JSON.stringify({ members: selectedMembers }),
-            success: function(data) {
-                if (data.status === 'success') {
-                    showToast(data.message, 'success');
-                    addMembersModal.hide();
-                } else {
-                    showToast(data.message, 'error');
-                }
-            },
-            error: function(error) {
-                if (error.responseJSON && error.responseJSON.message) {
-                    showToast(error.responseJSON.message, 'error');
-                } else {
-                    console.error('Error adding members:', error);
-                }
+    // Khởi tạo modal Thêm thành viên - chỉ nếu phần tử tồn tại
+    const addMembersModalElement = document.getElementById('addMembersModal');
+    let addMembersModal;
+    
+    if (addMembersModalElement) {
+        addMembersModal = new bootstrap.Modal(addMembersModalElement);
+    
+        // Sự kiện mở modal
+        $(document).on('click', '.openAddMembersModal', function() {
+            const conversationId = $(this).data('conversation-id');
+            const isGroup = $(this).data('is-group');
+    
+            if (isGroup) {
+                loadFriends(conversationId);
+                addMembersModal.show();
+            } else {
+                // Nếu không phải nhóm, không làm gì cả
+                console.log('Cuộc trò chuyện này không phải là nhóm.');
             }
         });
-    });
+    
+        // Sự kiện thêm thành viên đã chọn
+        $('#addSelectedMembers').on('click', function() {
+            const selectedMembers = [];
+            $('#addMembersModal .form-check-input:checked').each(function() {
+                selectedMembers.push($(this).val());
+            });
+    
+            // Gửi danh sách bạn bè được chọn đến server để thêm vào nhóm chat
+            const conversationId = $('#conversation_id').val();
+            $.ajax({
+                url: `/conversation/${conversationId}/add-members`,
+                method: 'POST',
+                contentType: 'application/json',
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                },
+                data: JSON.stringify({ members: selectedMembers }),
+                success: function(data) {
+                    if (data.status === 'success') {
+                        showToast(data.message, 'success');
+                        addMembersModal.hide();
+                    } else {
+                        showToast(data.message, 'error');
+                    }
+                },
+                error: function(error) {
+                    if (error.responseJSON && error.responseJSON.message) {
+                        showToast(error.responseJSON.message, 'error');
+                    } else {
+                        console.error('Error adding members:', error);
+                    }
+                }
+            });
+        });
+    }
 
     function loadFriends(conversationId) {
         $.ajax({
@@ -587,39 +602,39 @@ document.addEventListener('DOMContentLoaded', function() {
     const imagesList = document.querySelectorAll('.images-list .view-image');
     const viewToggleBtn = document.getElementById('view-toggle-btn');
 
-    function hideExtraImages() {
-        imagesList.forEach((img, index) => {
-            img.classList.toggle('d-none', index >= 6);
-        });
-        viewToggleBtn.textContent = "Xem tất cả";
-    }
-
-    hideExtraImages();
-
-    // Xử lý khi bấm nút "Xem tất cả" hoặc "Ẩn bớt"
-    viewToggleBtn.addEventListener('click', function() {
-        if (viewToggleBtn.textContent === "Xem tất cả") {
-            imagesList.forEach(img => img.classList.remove('d-none'));
-            viewToggleBtn.textContent = "Ẩn bớt";
-        } else {
-            hideExtraImages();
+    // Chỉ thực hiện các chức năng liên quan đến ảnh và nút nếu chúng tồn tại
+    if (viewToggleBtn && imagesList.length > 0) {
+        function hideExtraImages() {
+            imagesList.forEach((img, index) => {
+                img.classList.toggle('d-none', index >= 6);
+            });
+            viewToggleBtn.textContent = "Xem tất cả";
         }
-    });
 
-    // Hiển thị ảnh lớn khi bấm vào ảnh nhỏ
-    imagesList.forEach(image => {
-        image.addEventListener('click', function() {
-            const modalImage = document.getElementById('modalImage');
-            if (modalImage) {
-                modalImage.src = this.src;
-                const imageModal = new bootstrap.Modal(document.getElementById(
-                    'imageModal'));
-                imageModal.show();
+        hideExtraImages();
+
+        // Xử lý khi bấm nút "Xem tất cả" hoặc "Ẩn bớt"
+        viewToggleBtn.addEventListener('click', function() {
+            if (viewToggleBtn.textContent === "Xem tất cả") {
+                imagesList.forEach(img => img.classList.remove('d-none'));
+                viewToggleBtn.textContent = "Ẩn bớt";
             } else {
-                //console.error("Không tìm thấy phần tử 'modalImage'.");
+                hideExtraImages();
             }
         });
-    });
+        
+        // Hiển thị ảnh lớn khi bấm vào ảnh nhỏ
+        imagesList.forEach(image => {
+            image.addEventListener('click', function() {
+                const modalImage = document.getElementById('modalImage');
+                if (modalImage) {
+                    modalImage.src = this.src;
+                    const imageModal = new bootstrap.Modal(document.getElementById('imageModal'));
+                    imageModal.show();
+                }
+            });
+        });
+    }
 });
 
 // JavaScript để xử lý nút "Xem tất cả" và mở modal ảnh
@@ -651,8 +666,6 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 });
-
-
 
 document.addEventListener("DOMContentLoaded", function() {
     // Khi mở modal, tải danh sách bạn bè qua AJAX

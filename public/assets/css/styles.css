@@ -22,8 +22,14 @@
 
 .bg-white {
     --bs-bg-opacity: 0;
+    background-color: #fff !important;
 }
-
+@media (min-width: 768px) {
+    .col-md-1 {
+        flex: 0 0 auto;
+        width: 10%;
+    }
+}
 .modal-body,.modal-footer {
     color: var(--text-color);
 }
@@ -63,7 +69,20 @@
     background-color: var(--chat-color) !important;
     color: var(--text-color) !important;
 }
-
+.chat-list{
+    width: 25%;
+}
+.chat-window{
+    width: 65%;
+}
+@media (max-width: 1200px) {
+    .chat-list, .col-md-3{
+        width: 36% !important;
+    }
+    .chat-window, .col-md-8{
+        width: 54% !important;
+    }
+}
 .chatbox1 {
     padding: 7px 15px;
 }

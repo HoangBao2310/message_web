@@ -88,13 +88,13 @@
                     <div class=" col-10">
                         <input type="email" class="form-control" id="friendEmail"
                             placeholder="{{ __('messages.enterEmail') }}" required
-                            pattern="^[\w\.-]+@[a-zA-Z\d\.-]+\.[a-zA-Z]{2,}$"
+                            pattern="^[\w\.\-]+@[a-zA-Z0-9\.\-]+\.[a-zA-Z]{2,}$"
                             title="Vui lòng nhập định dạng email hợp lệ." maxlength="100">
                     </div>
-                    
+
                     <div class="col-2">
-                        <button type="button" class="btn btn-primary" id="searchButton"><i
-                                class="fa-solid fa-magnifying-glass"></i> </button>
+                        <button type="button" class="btn btn-primary" id="searchButton" disabled><i
+                                class="fa-solid fa-magnifying-glass"></i></button>
                     </div>
                 </div>
 

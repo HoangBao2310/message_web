@@ -211,7 +211,7 @@
                     alt="User" class="rounded-circle me-3 avatar" style="object-fit: cover">
             @endif
             <div
-                class="message-content {{ $message->sender_id === Auth::id() ? ' align-items-end' : 'bg-white-text' }} p-2 rounded d-flex flex-column">
+                class="message-content {{ $message->sender_id === Auth::id() ? 'align-items-end' : 'bg-white-text' }} p-2 rounded d-flex flex-column">
                 @if ($conversation->is_group && $message->sender_id !== Auth::id())
                     <p class="mb-0 text-muted">{{ $message->sender->name }}</p>
                 @endif
